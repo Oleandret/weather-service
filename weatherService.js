@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 export class WeatherService {
     constructor() {
         this.baseUrl = 'https://api.met.no/weatherapi/locationforecast/2.0';
