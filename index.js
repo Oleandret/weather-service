@@ -21,8 +21,12 @@ app.get('/', (req, res) => {
 // Værdata endpoint
 app.get('/api/weather', async (req, res) => {
     try {
-        const { location = 'Stavanger', unit = 'C', details = true } = req.query;
-        const weather = await weatherService.getWeather({ location, unit, details: details === 'true' });
+        const { location = 'Stavanger', unit = 'C', details = 'true' } = req.query;
+        const weather = await weatherService.getWeather({
+            location,
+            unit,
+            details: details === 'true'
+        });
         res.json(weather);
     } catch (error) {
         res.status(500).json({ error: error.message });
